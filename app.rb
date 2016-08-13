@@ -1,6 +1,7 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require 'sinatra/activerecord'
-require 'sinatra/reloader' if development?
+require 'pry'
 
 class User < ActiveRecord::Base
 end
@@ -10,12 +11,16 @@ class App < Sinatra::Base
     content_type :json
   end
 
+  configure :development do
+    register Sinatra::Reloader
+  end
+
   get '/' do
     p 'Hello!'
   end
 
   get '/users/?' do
-    @users = User.where(id: 1).or(User.where(id: 3))
+    @users = User.where(id: 2).or(User.where(id: 3))
     puts @users.to_sql
     @users.to_json
   end
