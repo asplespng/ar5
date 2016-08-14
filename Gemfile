@@ -4,7 +4,10 @@ gem 'pg'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
-gem 'sinatra-contrib'
 gem 'activerecord'
-gem 'pry'
-gem 'pry-byebug'
+gem 'haml'
+group :test, :development do
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'sinatra-contrib'
+end
