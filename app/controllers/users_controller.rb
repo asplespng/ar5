@@ -8,6 +8,6 @@ class UsersController < ApplicationController
 
   get '/:id/?' do
     @user = User.find_by_id(params[:id])
-    @user.to_json
+    haml :show
   end
 end
