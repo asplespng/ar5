@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   get '/?' do
-    @users = User.where(id: 2).or(User.where(id: 3))
+    @users = User.all
+    # @users = User.where(id: 2).or(User.where(id: 3))
     puts @users.to_sql
-    @users.to_json
+    haml :index
   end
 
   get '/:id/?' do

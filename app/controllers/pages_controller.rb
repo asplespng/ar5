@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   get '/' do
-    p 'Hello!'
+    haml :index
   end
 end
